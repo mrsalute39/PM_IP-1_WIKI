@@ -1,0 +1,40 @@
+# MediaWiki with MySQL
+services:
+  mediawiki:
+    image: mediawiki:1.44.0
+    restart: always
+    networks:
+      - docker_network
+    ports:
+      - 8080:80
+    volumes:
+    - ./LocalSettings.php:/var/www/html/LocalSettings.php
+  database:
+    image: mysql:8.4.5
+    restart: always
+    networks:
+      - docker_network
+    environment:
+      MYSQL_DATABASE: wiki_db
+      MYSQL_ROOT_PASSWORD: nbj7m63ASb6X
+    volumes:
+      - /var/lib/mysql
+
+  # phpmyadmin
+  phpmyadmin:
+    depends_on:
+      - database
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - '8000:80'
+    environment:
+      PMA_HOST: database
+      MYSQL_ROOT_PASSWORD: nbj7m63ASb6X
+      UPLOAD_LIMIT: 64M
+    networks:
+      - docker_network
+
+networks:
+  docker_network:
+    driver: bridge
