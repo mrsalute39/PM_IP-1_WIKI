@@ -8,15 +8,20 @@ services:
     ports:
       - 8080:80
     volumes:
-    - ./LocalSettings.php:/var/www/html/LocalSettings.php
+      - ./mediawiki_data:/var/www/html
+      - ./mediawiki_images:/var/www/html/images
+      - ./mediawiki_deleted:/var/html/images/deleted
+#      - ./LocalSettings.php:/var/www/html/LocalSettings.php раскоментировать после полной установки MediaWiki
   database:
     image: mysql:8.4.5
     restart: always
     networks:
       - docker_network
     environment:
-      MYSQL_DATABASE: wiki_db
+      MYSQL_DATABASE: my_wiki_db
       MYSQL_ROOT_PASSWORD: nbj7m63ASb6X
+      MYSQL_USER: wikimedia
+      MYSQL_PASSWORD: rbEd7aYCPTet
     volumes:
       - /var/lib/mysql
 
@@ -31,7 +36,7 @@ services:
     environment:
       PMA_HOST: database
       MYSQL_ROOT_PASSWORD: nbj7m63ASb6X
-      UPLOAD_LIMIT: 64M
+      UPLOAD_LIMIT: 128M
     networks:
       - docker_network
 
