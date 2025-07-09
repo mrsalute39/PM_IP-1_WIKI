@@ -179,3 +179,8 @@ wfLoadExtension( 'WikiEditor' );
 # Add more configuration options below.
 
 $wgShowExceptionDetails = true;
+
+
+root -  EVmbD6!6Ve (VPS)
+root - nbj7m63ASb6X (SQL)
+wikimedia - rbEd7aYCPTet (wikimedia SQL agent)
