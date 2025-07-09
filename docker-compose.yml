@@ -8,7 +8,6 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ./mediawiki_data:/var/www/html
       - ./mediawiki_images:/var/www/html/images
       - ./LocalSettings.php:/var/www/html/LocalSettings.php #раскоментировать после полной установки MediaWiki
   database:
@@ -19,8 +18,6 @@ services:
     environment:
       MYSQL_DATABASE: my_wiki_db
       MYSQL_ROOT_PASSWORD: nbj7m63ASb6X
-      MYSQL_USER: wikimedia
-      MYSQL_PASSWORD: rbEd7aYCPTet
     volumes:
       - /var/lib/mysql
 
