@@ -102,14 +102,14 @@ $wgLocaltimezone = "UTC";
 ## be publicly accessible from the web.
 #$wgCacheDirectory = "$IP/cache";
 
-$wgSecretKey = "2419eed4cc82b615f5f274e4024e6b16b0c1541653e56450b9d8e903fcf19dd2";
+$wgSecretKey = "adf5aecf5aea5081a7daae3dcadb879e4f8cdcaf8245398c6904bb3fbf06dc37";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "c9bc43ec471cdd44";
+$wgUpgradeKey = "def1e86cd2702de2";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -124,7 +124,7 @@ $wgDiff3 = "/usr/bin/diff3";
 
 # The following permissions were set based on your choice in the installer
 $wgGroupPermissions["*"]["createaccount"] = false;
-$wgGroupPermissions["*"]["edit"] = true;
+$wgGroupPermissions["*"]["edit"] = false;
 $wgGroupPermissions["*"]["read"] = false;
 
 ## Default skin: you can change the default skin. Use the internal symbolic
@@ -152,7 +152,6 @@ wfLoadExtension( 'CodeEditor' );
 wfLoadExtension( 'ConfirmEdit' );
 wfLoadExtension( 'DiscussionTools' );
 wfLoadExtension( 'Echo' );
-wfLoadExtension( 'Gadgets' );
 wfLoadExtension( 'ImageMap' );
 wfLoadExtension( 'InputBox' );
 wfLoadExtension( 'Interwiki' );
@@ -171,8 +170,6 @@ wfLoadExtension( 'SpamBlacklist' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TemplateStyles' );
-wfLoadExtension( 'TextExtracts' );
-wfLoadExtension( 'Thanks' );
 wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'VisualEditor' );
 wfLoadExtension( 'WikiEditor' );
@@ -180,4 +177,3 @@ wfLoadExtension( 'WikiEditor' );
 
 # End of automatically generated settings.
 # Add more configuration options below.
-
