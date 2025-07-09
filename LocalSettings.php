@@ -173,7 +173,7 @@ wfLoadExtension( 'TemplateStyles' );
 wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'VisualEditor' );
 wfLoadExtension( 'WikiEditor' );
-
+#updated
 
 # End of automatically generated settings.
 # Add more configuration options below.
