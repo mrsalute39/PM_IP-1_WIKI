@@ -9,7 +9,7 @@ services:
       - 8080:80
     volumes:
       - ./mediawiki_images:/var/www/html/images
-      - ./LocalSettings.php:/var/www/html/LocalSettings.php #раскоментировать после полной установки MediaWiki
+      #- ./LocalSettings.php:/var/www/html/LocalSettings.php #раскоментировать после полной установки MediaWiki
   database:
     image: mysql:8.4.5
     restart: always
