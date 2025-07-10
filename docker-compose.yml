@@ -1,42 +1,28 @@
-# MediaWiki with MySQL
+version: "3.9"
 services:
   mediawiki:
-    image: mediawiki:1.44.0
-    restart: always
-    networks:
-      - docker_network
+    image: mediawiki:latest
     ports:
-      - 8080:80
+      - "8080:80"
     volumes:
-      - ./mediawiki_images:/var/www/html/images
-    #  - ./LocalSettings.php:/var/www/html/LocalSettings.php #раскоментировать после полной установки MediaWiki
-  database:
-    image: mysql:8.4.5
-    restart: always
-    networks:
-      - docker_network
+      - ./images:/var/www/html/images
+      - ./LocalSettings.php:/var/www/html/LocalSettings.php
     environment:
-      MYSQL_DATABASE: my_wiki_db
-      MYSQL_ROOT_PASSWORD: nbj7m63ASb6X
-    volumes:
-      - /var/lib/mysql
-
-  # phpmyadmin
-  phpmyadmin:
+      - MYSQL_DATABASE=mediawiki
+      - MYSQL_USER=mediawiki_rw
+      - MYSQL_PASSWORD=rbEd7aYCPTet
+      - MYSQL_ROOT_PASSWORD=nbj7m63ASb6X
     depends_on:
-      - database
-    image: phpmyadmin/phpmyadmin
+      - mariadb
     restart: always
-    ports:
-      - '8000:80'
-    environment:
-      PMA_HOST: database
-      MYSQL_ROOT_PASSWORD: nbj7m63ASb6X
-      UPLOAD_LIMIT: 128M
-    networks:
-      - docker_network
 
-networks:
-  docker_network:
-    driver: bridge
-#updated
+  mariadb:
+    image: mariadb:latest
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=my_wiki
+      - MYSQL_USER=mediawiki_rw
+      - MYSQL_PASSWORD=rbEd7aYCPTet
+      - MYSQL_ROOT_PASSWORD=nbj7m63ASb6X
+    restart: always

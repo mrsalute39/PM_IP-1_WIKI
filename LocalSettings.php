@@ -31,7 +31,7 @@ $wgSitename = "PM_IP-1_WIKI";
 $wgScriptPath = "";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "http://localhost:8080";
+$wgServer = "http://158.255.1.180:8080";
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
@@ -57,14 +57,14 @@ $wgEmailAuthentication = true;
 
 ## Database settings
 $wgDBtype = "mysql";
-$wgDBserver = "database";
-$wgDBname = "wiki_db";
-$wgDBuser = "root";
-$wgDBpassword = "nbj7m63ASb6X";
+$wgDBserver = "mariadb";
+$wgDBname = "mediawiki";
+$wgDBuser = "mediawiki_rw";
+$wgDBpassword = "rbEd7aYCPTet";
 
 # MySQL specific settings
 $wgDBprefix = "";
-$wgDBssl = true;
+$wgDBssl = false;
 
 # MySQL table options to use during installation or update
 $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
@@ -102,14 +102,14 @@ $wgLocaltimezone = "UTC";
 ## be publicly accessible from the web.
 #$wgCacheDirectory = "$IP/cache";
 
-$wgSecretKey = "654ce78f8304d79bcdfea9b82045222f654a000ef39a750c82bfeadff104bb63";
+$wgSecretKey = "cfbd26e97e7fd3ac2da973b1c701621924e3a0418270284fc1d3d702279950fb";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "4bbd22e003fc3479";
+$wgUpgradeKey = "a9f838f36ffcf4d2";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -154,6 +154,7 @@ wfLoadExtension( 'DiscussionTools' );
 wfLoadExtension( 'Echo' );
 wfLoadExtension( 'ImageMap' );
 wfLoadExtension( 'InputBox' );
+wfLoadExtension( 'Interwiki' );
 wfLoadExtension( 'Linter' );
 wfLoadExtension( 'LoginNotify' );
 wfLoadExtension( 'Math' );
@@ -169,7 +170,6 @@ wfLoadExtension( 'SpamBlacklist' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TemplateStyles' );
-wfLoadExtension( 'Thanks' );
 wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'VisualEditor' );
 wfLoadExtension( 'WikiEditor' );
