@@ -1,7 +1,7 @@
 #Альтернативный запуск через container-network
 
 docker network create containers
-docker run --name mariadb -e MYSQL_ROOT_PASSWORD=nbj7m63ASb6X -e MYSQL_USER=mediawiki_rw -e MYSQL_PASSWORD=rbEd7aYCPTet -e MYSQL_DATABASE=mediawiki -v /home/root/docker/mariadb:/var/lib/mysql --network containers --restart=unless-stopped -d mariadb:latest
+docker run --name mariadb -e MYSQL_ROOT_PASSWORD=nbj7m63ASb6X -e MYSQL_USER=mediawiki_rw -e MYSQL_PASSWORD=rbEd7aYCPTet -e MYSQL_DATABASE=mediawiki -v /home/root/docker/mariadb:/var/lib/mysql -v /home/root/docker/db_backups/:/backup --network containers --restart=unless-stopped -d mariadb:latest
 
 docker run -d --name mediawiki -p 8080:80 -e MYSQL_USER=mediawiki_rw -e MYSQL_PASSWORD=rbEd7aYCPTet -e MYSQL_DATABASE=mediawiki -v /home/root/docker/mediawiki/images:/var/www/html/images -v /home/root/docker/mediawiki/LocalSettings.php:/var/www/html/LocalSettings.php --network containers --restart=unless-stopped mediawiki:latest
 !!!!если не настроен LocalSettings.php убери строчку отвечающую за монтирование этого файла в контейнер!!!!
