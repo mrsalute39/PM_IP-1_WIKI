@@ -5,8 +5,8 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./images:/var/www/html/images
-      - ./LocalSettings.php:/var/www/html/LocalSettings.php
+      - /home/root/docker/mediawiki/images:/var/www/html/images
+      - /home/root/docker/mediawiki/LocalSettings.php:/var/www/html/LocalSettings.php
     environment:
       - MYSQL_DATABASE=mediawiki
       - MYSQL_USER=mediawiki_rw
@@ -19,7 +19,8 @@ services:
   mariadb:
     image: mariadb:latest
     volumes:
-      - ./db:/var/lib/mysql
+     - /home/root/docker/mariadb:/var/lib/mysql
+     - /home/root/docker/db_backups/:/backup
     environment:
       - MYSQL_DATABASE=my_wiki
       - MYSQL_USER=mediawiki_rw
